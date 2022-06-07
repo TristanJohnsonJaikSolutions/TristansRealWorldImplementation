@@ -28,7 +28,6 @@ export function Home() {
     return "Loading...";
   }
 
-
   // adding the text "active" to the tab's className that is active
   var myFeedTabActiveString;
   var globalFeedTabActiveString;
@@ -68,65 +67,60 @@ export function Home() {
     <>
       <div className="container grid-container smallTopPadding">
         <div>
-
-
-
-            <ul className="nav nav-tabs medBottomMargin">
-              {isLoggedIn ? (
-                <>
-                  <li className="nav-item">
-                    <button
-                      className={"nav-link " + myFeedTabActiveString}
-                      onClick={() =>
-                        setTabAndClearTagFilter(yourFeedArticlesTabName)
-                      }
-                    >
-                      Your Feed
-                    </button>
-                  </li>
-                </>
-              ) : (
-                <></>
-              )}
-
-              <li className="nav-item">
-                <button
-                  className={"nav-link " + globalFeedTabActiveString}
-                  onClick={() => setTabAndClearTagFilter("Global Feed")}
-                >
-                  Global Feed
-                </button>
-              </li>
-
-              {tagFilter != "" ? (
+          <ul className="nav nav-tabs medBottomMargin">
+            {isLoggedIn ? (
+              <>
                 <li className="nav-item">
-                  <button className="nav-link active">#{tagFilter}</button>
+                  <button
+                    className={"nav-link " + myFeedTabActiveString}
+                    onClick={() =>
+                      setTabAndClearTagFilter(yourFeedArticlesTabName)
+                    }
+                  >
+                    Your Feed
+                  </button>
                 </li>
-              ) : (
-                <></>
-              )}
-            </ul>
-
-            {filteredArticles.length < 1 ? (
-              <>No articles are here... yet.</>
+              </>
             ) : (
-              filteredArticles.map((article) => (
-                <div key={article.title}>
-                  <Article
-                    title={article.title}
-                    favorited={article.favorited}
-                    favoritesCount={article.favoritesCount}
-                    tags={article.tagList}
-                    author={article.author}
-                    description={article.description}
-                    createdAt={article.createdAt}
-                    slug={article.slug}
-                  />
-                </div>
-              ))
+              <></>
             )}
 
+            <li className="nav-item">
+              <button
+                className={"nav-link " + globalFeedTabActiveString}
+                onClick={() => setTabAndClearTagFilter("Global Feed")}
+              >
+                Global Feed
+              </button>
+            </li>
 
+            {tagFilter != "" ? (
+              <li className="nav-item">
+                <button className="nav-link active">#{tagFilter}</button>
+              </li>
+            ) : (
+              <></>
+            )}
+          </ul>
+
+          {filteredArticles.length < 1 ? (
+            <>No articles are here... yet.</>
+          ) : (
+            filteredArticles.map((article) => (
+              <div key={article.title}>
+                <Article
+                  title={article.title}
+                  favorited={article.favorited}
+                  favoritesCount={article.favoritesCount}
+                  tagList={article.tagList}
+                  author={article.author}
+                  description={article.description}
+                  createdAt={article.createdAt}
+                  slug={article.slug}
+                />
+              </div>
+            ))
+          )}
         </div>
 
         <div className="medLeftPadding tagContainer">

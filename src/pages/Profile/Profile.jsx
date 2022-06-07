@@ -132,7 +132,7 @@ export function Profile() {
                   title={article.title}
                   favorited={article.favorited}
                   favoritesCount={article.favoritesCount}
-                  tags={article.tagList}
+                  tagList={article.tagList}
                   author={article.author}
                   description={article.description}
                   createdAt={article.createdAt}
@@ -150,7 +150,7 @@ export function Profile() {
                 title={article.title}
                 favorited={article.favorited}
                 favoritesCount={article.favoritesCount}
-                tags={article.tagList}
+                tagList={article.tagList}
                 author={article.author}
                 description={article.description}
                 createdAt={article.createdAt}

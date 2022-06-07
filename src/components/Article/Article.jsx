@@ -4,46 +4,52 @@ import ProfileImageNameLinkAndDateOfArticle from "components/ProfileImageNameLin
 import useArticle from "hooks/useArticle";
 import useAuth from "hooks/useAuth";
 
-
-export function Article({slug, title, description, tagList, author, createdAt}) {
-
+export function Article({
+  slug,
+  title,
+  description,
+  tagList,
+  author,
+  createdAt,
+}) {
   const { isLoggedIn } = useAuth();
   var articleHook = useArticle(slug);
   let navigate = useNavigate();
 
-
-  if (articleHook.articleQuery.isLoading){
+  if (articleHook.articleQuery.isLoading) {
     return "Loading...";
   }
 
-
-  function favorite(){
-    if (isLoggedIn){
+  function favorite() {
+    if (isLoggedIn) {
       articleHook.favoriteArticleMutation.mutate();
-    }
-    else{
+    } else {
       navigate("/login"); // when not signed in, navigate us to the sign in page instead of favoriting
     }
-  };
+  }
 
-  function unfavorite(){
-    if (isLoggedIn){
+  function unfavorite() {
+    if (isLoggedIn) {
       articleHook.unfavoriteArticleMutation.mutate();
-    }
-    else{
+    } else {
       navigate("/login");
     }
-  };
-
+  }
 
   return (
     <>
       {articleHook.articleQuery.data.favorited ? (
-        <button className="floatRight btn btn-primary" onClick={() => unfavorite()}>
+        <button
+          className="floatRight btn btn-primary"
+          onClick={() => unfavorite()}
+        >
           Unfavorite ({articleHook.articleQuery.data.favoritesCount})
         </button>
       ) : (
-        <button className="floatRight btn btn-outline-primary" onClick={() => favorite()}>
+        <button
+          className="floatRight btn btn-outline-primary"
+          onClick={() => favorite()}
+        >
           Favorite ({articleHook.articleQuery.data.favoritesCount})
         </button>
       )}
@@ -74,14 +80,11 @@ export function Article({slug, title, description, tagList, author, createdAt}) 
   );
 }
 
-
 Article.propTypes = {
-  
   slug: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
   createdAt: PropTypes.string,
   tags: PropTypes.array,
   author: PropTypes.object,
-  
 };
