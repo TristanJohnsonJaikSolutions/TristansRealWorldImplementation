@@ -6,8 +6,13 @@ import { useMutation, useQuery, useQueryClient } from "react-query";
  * Retrieves the profile for 'username' and lets you follow or unfollow that profile.
  */
 export function useProfile(username) {
-  const { authToken } = useAuth();
+  const { authToken, isLoggedIn } = useAuth();
   const queryClient = useQueryClient();
+
+  const header = isLoggedIn ?
+    { authorization: `Token ${authToken}`, } // so we only pass the authorization header when we are logged in
+    :
+    {};
 
   /**
    * Fetches the user's profile data.
@@ -17,7 +22,10 @@ export function useProfile(username) {
       return null; // Don't fetch if user isn't passed.
     }
 
-    return axios(`/api/profiles/${username}`, { method: "get" }).then((res) => {
+    return axios(`/api/profiles/${username}`, {
+      method: "get",
+      headers: header,
+    }).then((res) => {
       return res.data.profile;
     });
   });

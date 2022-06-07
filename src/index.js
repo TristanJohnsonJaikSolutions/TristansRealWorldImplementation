@@ -8,6 +8,8 @@ import config from "./domainConfig";
 import { App } from "./App";
 import { AuthProvider } from "hooks/useAuth";
 
+import "./App.css"
+
 // Use API base from domainConfig for all Axios calls.
 axios.defaults.baseURL = config.apiBaseURL;
 

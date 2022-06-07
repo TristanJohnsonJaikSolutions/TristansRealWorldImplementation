@@ -15,7 +15,7 @@ export function Header() {
           conduit
         </Link>
         <ul className="nav navbar-nav pull-xs-right">
-          <li className="nav-item">
+          <li className="nav-item navText">
             {/* TODO: Add "active" class to nav item when you're on that page */}
 
             <Link className="nav-link active" to="/">
@@ -25,30 +25,33 @@ export function Header() {
 
           {isLoggedIn ? (
             <>
-              <li className="nav-item">
-                <Link className="nav-link" to="">
+              <li className="nav-item navText">
+                <Link className="nav-link" to="/newArticle">
                   <i className="ion-compose"></i>&nbsp;New Article
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="">
+              <li className="nav-item navText">
+                <Link className="nav-link" to="/settings">
                   <i className="ion-gear-a"></i>&nbsp;Settings
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="">
+              <li className="nav-item navText">
+                <Link
+                  className="nav-link"
+                  to={"/profile/" + userData?.username}
+                >
                   {userData?.username}
                 </Link>
               </li>
             </>
           ) : (
             <>
-              <li className="nav-item">
+              <li className="nav-item navText">
                 <Link className="nav-link" to="/login">
                   Sign in
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item navText">
                 <Link className="nav-link" to="/register">
                   Sign up
                 </Link>
