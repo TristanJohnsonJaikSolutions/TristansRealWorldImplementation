@@ -1,0 +1,62 @@
+{
+  "name": "jaik-realworld-starter",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "./",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "cosmos": "cosmos"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-history-api-fallback": "^2.2.1"
+  },
+  "devDependencies": {
+    "@mswjs/data": "^0.10.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/user-event": "^14.0.4",
+    "axios": "^0.26.1",
+    "bootstrap": "^5.1.3",
+    "classnames": "^2.3.1",
+    "dayjs": "^1.11.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "fs-extra": "^10.0.1",
+    "msw": "^0.39.2",
+    "prettier": "2.6.2",
+    "prop-types": "^15.8.1",
+    "react": "^18.0.0",
+    "react-cosmos": "^5.7.2",
+    "react-dom": "^18.0.0",
+    "react-query": "^3.34.19",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "^5.0.0",
+    "react-test-renderer": "^18.0.0",
+    "react-use": "^17.3.2",
+    "uuid": "^8.3.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "msw": {
+    "workerDirectory": "public"
+  }
+}

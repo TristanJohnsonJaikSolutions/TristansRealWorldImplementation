@@ -1,0 +1,8 @@
+{
+  "watchDirs": ["src"],
+  "staticPath": "public",
+  "globalImports": ["src/setupCosmos.js"],
+  "webpack": {
+    "configPath": "react-scripts/config/webpack.config"
+  }
+}
